@@ -1,0 +1,56 @@
+{
+  "name": "dsh-plugin-archive-shelf",
+  "version": "0.1.0",
+  "description": "归藏：把 DSH 里归档掉的会话列出来、看清聊了什么，一键放出来接着聊（只读；归档集合仍由宿主维护）。",
+  "license": "MIT",
+  "type": "module",
+  "main": "./index.js",
+  "files": [
+    "index.js",
+    "client.js",
+    "lib/",
+    "cordis.patch.yml",
+    "docs/",
+    "README.md",
+    "package.json"
+  ],
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json"
+  },
+  "author": "孙爱珍",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "archive",
+    "session",
+    "归档"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hualidan42-beep/dsh-plugin-archive-shelf.git"
+  },
+  "homepage": "https://github.com/hualidan42-beep/dsh-plugin-archive-shelf#readme",
+  "scripts": {
+    "verify": "node verify/parse-unit.mjs && node verify/host-smoke.mjs && node verify/client-harness.mjs"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "renderer",
+        "layout",
+        "sidebar"
+      ]
+    }
+  }
+}

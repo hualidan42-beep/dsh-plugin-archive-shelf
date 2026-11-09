@@ -1,0 +1,8 @@
+# 插件自带的 patch 层：把归档库的宿主半（两条只读 /api/archive-shelf.* 路由）
+# 插进 DSH web profile 的 Cordis 树。
+#
+# 浏览器半由 package.json 的 dsh.client 声明，宿主按包名去 node_modules 里取 client.js。
+# 聊天里那条常驻入口由 sidebar-tidy 自动收进「更多」（它只留 插件 / 自动化任务 / 上下文洞察）。
+- insert:
+  - id: archive-shelf
+    name: 'dsh-plugin-archive-shelf'
